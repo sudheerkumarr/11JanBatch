@@ -1,0 +1,43 @@
+package wtech.MavenProj;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DropTable {
+
+	public static void main(String[] args) {
+		try {
+			// Load oracle driver
+			System.out.println("Loading db driver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			// Create connection object
+			System.out.println("Creating Connection to the db.");
+			Connection conn=DriverManager.getConnection(  
+						"jdbc:oracle:thin:@localhost:1521/mydb1","c##sudheerr","passwd");
+
+			// Create statement object
+			System.out.println("Creating statement object");
+			Statement stmt = conn.createStatement();
+			
+			// Create query
+			String query = "drop table customer";
+			
+			// Execute query
+			// execute() - used to execute DDL commands
+			System.out.println("Executing drop table query..");
+			stmt.executeUpdate(query);
+			
+			System.out.println("Table dropped.");
+			
+			
+			// close connection and statement
+			stmt.close();
+			conn.close();
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
