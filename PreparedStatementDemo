@@ -1,0 +1,80 @@
+package wtech.MavenProj;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class PreparedStatementDemo {
+
+	public static void main(String[] args) {
+		try {
+			// Load oracle driver
+			System.out.println("Loading db driver");
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			// Create connection object
+			System.out.println("Creating Connection to the db.");
+			Connection conn=DriverManager.getConnection(  
+						"jdbc:oracle:thin:@localhost:1521/mydb1","c##sudheerr","passwd");
+			
+			// Create query
+			String query = "insert into customer(id, name) values(?, ?)";
+
+			// Create statement object
+			System.out.println("Creating statement object");
+			PreparedStatement preStmt = conn.prepareStatement(query);
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter number of records to be inserted: ");
+			int noOfRecords = sc.nextInt();
+			for(int i=0; i<noOfRecords; i++) {
+				System.out.println("Enter customerId: ");
+				int cId=sc.nextInt();
+				System.out.println("Enter customerName: ");
+				String name = sc.next();
+				preStmt.setInt(1, cId) ;// 1 - specifies 1st parameter in the query.
+				preStmt.setString(2, name); // 2 - specifies 2nd parameter in the query.
+				preStmt.executeUpdate();
+				
+			}
+			
+			System.out.println(noOfRecords + " records inserted");
+			
+			
+//			// Execute query
+//			System.out.println("Executing insert query");
+//			// 1st record
+//			preStmt.setInt(1, 1001) ;// 1 - specifies 1st parameter in the query.
+//			preStmt.setString(2, "Max"); // 2 - specifies 2nd parameter in the query.
+//			preStmt.executeUpdate();
+//			
+//			// 2nd record
+//			preStmt.setInt(1, 1002) ;// 1 - specifies 1st parameter in the query.
+//			preStmt.setString(2, "Bob"); // 2 - specifies 2nd parameter in the query.
+//			preStmt.executeUpdate();
+//			
+//			// 3rd record
+//			preStmt.setInt(1, 1003) ;// 1 - specifies 1st parameter in the query.
+//			preStmt.setString(2, "Jhon"); // 2 - specifies 2nd parameter in the query.
+//			preStmt.executeUpdate();
+//			
+//			
+//			
+//			
+//			System.out.println( " records inserted.");
+			
+			
+			// close connection and statement
+			preStmt.close();
+			conn.close();
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}
