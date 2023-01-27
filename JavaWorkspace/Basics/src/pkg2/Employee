@@ -1,0 +1,29 @@
+package day13;
+
+public class Employee {
+	
+	private int id;
+	private String name;
+	
+	// Constructors
+	public Employee() {
+		super();
+		System.out.println("No-arg Constructor");
+	}
+	public Employee(int id) {
+		super();
+		System.out.println("id Constructor");
+		this.id = id;
+	}
+	public Employee(String name) {
+		super();
+		System.out.println("name Constructor");
+		this.name = name;
+	}
+	public Employee(int id, String name) {
+		super();
+		System.out.println("id, name Constructor");
+		this.id = id;
+		this.name = name;
+	}
+}
