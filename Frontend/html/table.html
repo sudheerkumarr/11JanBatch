@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Table Demo</title>
+        <!-- inline styling-->
+        <style>
+            /* Universal selector */
+            * {
+                /* margin-left: 15px;
+                margin-top: 15px;
+                margin-right: 15px; */
+                margin: 20px;
+               
+            }
+            /* Type selector */
+            table, th, td {
+                border: solid 2px red; border-collapse: collapse;
+                padding: 10px;
+            }
+            table {
+                margin-top: 50px;
+            }
+            p {
+                text-transform: capitalize;
+                text-transform: uppercase;
+                font-style: italic;
+                border: 1px solid red;
+                padding: 15px;
+            }
+
+            /*id selector*/
+            #p2{
+                color: brown;
+                font-size: 20px;
+                background-color: cadetblue
+            }
+
+            /* class selector */
+            .para {
+                color: darkgoldenrod;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: bold;
+            }
+
+            /* Attribute selector */
+            [target="_self"] {
+                text-decoration: none;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+        <p id="p1" class="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex, saepe officia porro quasi molestiae totam nulla, vitae, alias blanditiis labore dicta nihil similique ullam a? Aliquid voluptate vitae reiciendis voluptatum!</p>
+        <p id="p2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non, suscipit laboriosam facere quibusdam ipsa numquam neque nostrum? Nobis quisquam qui, maiores, saepe nam maxime vitae culpa laudantium impedit autem itaque!</p>
+        <p id="p3" class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius commodi maxime, quod perferendis voluptate nam sed laborum officiis eveniet, ipsa ullam est aperiam pariatur nemo at, fugit perspiciatis. Exercitationem, veritatis.</p>
+        <table>
+            <thead>
+              <tr>
+                <th>EmpNo</th>
+                <th>EmpName</th>
+                <th>ContactNo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1000</td>
+                <td>Ram</td>
+                <td>9999911111</td>
+              </tr>
+              <tr>
+                <td>1001</td>
+                <td>Sam</td>
+                <td>9999922222</td>
+              </tr>
+              <tr>
+                <td>1002</td>
+                <td>Bob</td>
+                <td>9999933333</td>
+              </tr>
+            </tbody>
+        </table>
+        <a href="basics.htm" target="_self">Basics_self</a>
+        <a href="basics.htm" target="_blank">Basics_blank</a>
+    </body>
+</html>
