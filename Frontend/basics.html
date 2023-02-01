@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+</head>
+<body>
+    <p id="para"></p>
+    <form onsubmit="validate()">
+        <div>
+            <label>Email</label>
+            <input type="email" id="email" name="email"/>
+        </div>
+        <small id="eid"></small>
+        <div>
+            <label>Password</label>
+            <input type="password" id="password" name="password"/>
+        </div>
+        <small id="pid"></small>
+        <input type="submit" value="Login"/>
+    </form>
+
+    <script>
+        document.getElementById(para).innerHTML="Hello world";
+        function validate() {
+            event.preventDefault();
+            let e = document.getElementById("email");
+            let p = document.getElementById("password");
+
+            let ei= document.getElementById("eid");
+            let pi = document.getElementById("pid");
+
+            if(e.value=="") {
+                //alert("email field is blank");
+                ei.innerHTML="email field is blank";
+            } else if(p.value=="") {
+                //alert("password field is blank")
+                pi.innerHTML="password field is blank";
+            } else if(!/[a-zA-Z0-9#$%^]{6}/.test(p.value)) {
+                //alert("Password should be 6 char length")
+                pi.innerHTML="Password should be 6 char length";
+            } else {
+                alert("Login success!")
+            }
+        }
+    </script>
+</body>
+</html>
